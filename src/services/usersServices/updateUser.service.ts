@@ -1,7 +1,7 @@
 import AppDataSource from "../../data-source";
 import { Users } from "../../entities/user.entity";
 import { AppError } from "../../errors";
-import { IUserUpdate } from "../../interfaces/users";
+import { IUserRequest, IUserUpdate } from "../../interfaces/users";
 import { createUserResponseSchema } from "../../serializers/users.serializers";
 
 export const updateUserService = async (userData: IUserUpdate, userId: string) => {
@@ -25,6 +25,7 @@ export const updateUserService = async (userData: IUserUpdate, userId: string) =
     const findUserToBeReturned = await usersRepository.findOneBy({
         id: userId
     })
+
 
 
     return findUserToBeReturned
