@@ -6,8 +6,7 @@ export const validateDataMiddleware = (schema: AnySchema) => async (req: Request
 
     try {
         const validatedData = await schema.validate(req.body, {
-            stripUnknown: true,
-            abortEarly: false
+            strict: true
         })
 
         req.body = validatedData

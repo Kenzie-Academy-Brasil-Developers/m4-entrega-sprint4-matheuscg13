@@ -6,13 +6,13 @@ class Users {
     @PrimaryGeneratedColumn("uuid")
     id: string
 
-    @Column({default: 'true'})
+    @Column({default: true})
     isActive: boolean
 
     @Column()
     name: string
 
-    @Column({unique: true})
+    @Column()
     email: string
 
     @Column()

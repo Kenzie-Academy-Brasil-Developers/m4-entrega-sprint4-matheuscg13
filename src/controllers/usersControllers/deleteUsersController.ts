@@ -3,5 +3,5 @@ import { deleteUserService } from "../../services/usersServices/deleteUser.servi
 
 export const deleteUserController = async (req: Request, resp: Response) => {
     const data = await deleteUserService(req.params.id)
-    return resp.status(204).json()
+    return resp.status(204).json(data)
 }

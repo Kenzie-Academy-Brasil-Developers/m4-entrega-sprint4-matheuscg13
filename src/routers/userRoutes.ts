@@ -7,10 +7,11 @@ import { validateDataMiddleware } from "../middlewares/validateData.middleware";
 import { verifyAdminMiddleware } from "../middlewares/verifyAdminMiddlewares";
 import { verifyPermissionsMiddleware } from "../middlewares/verifyPemissions";
 import { createUserRequestSchema, updateUserRequestSchema } from "../serializers/users.serializers";
+import { validateUpdateDataMiddleware } from "../middlewares/validateUpdateData";
 
 export const usersRoutes = Router()
 
 usersRoutes.post('',validateDataMiddleware(createUserRequestSchema), createUserController)
 usersRoutes.get("", verifyAdminMiddleware, getAllUsersController)
 usersRoutes.delete("/:id", verifyAdminMiddleware, deleteUserController)
-usersRoutes.patch("/:id", validateDataMiddleware(updateUserRequestSchema), verifyPermissionsMiddleware, updateUserController)
+usersRoutes.patch("/:id", validateUpdateDataMiddleware(updateUserRequestSchema), verifyPermissionsMiddleware, updateUserController)

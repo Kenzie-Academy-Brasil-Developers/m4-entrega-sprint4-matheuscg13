@@ -25,5 +25,5 @@ export const listUsersSchema = yup.array(createUserResponseSchema)
 export const updateUserRequestSchema:SchemaOf<IUserUpdate> = yup.object().shape({
     name: yup.string(),
     email: yup.string().email(),
-    password: yup.string(),
+    password: yup.string()
 })

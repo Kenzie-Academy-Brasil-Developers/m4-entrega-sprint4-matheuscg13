@@ -22,7 +22,7 @@ export const updateUserService = async (userData: IUserUpdate, userId: string) =
 
     await usersRepository.save(userUpdated)
 
-    const findUserToBeReturned = usersRepository.findOneBy({
+    const findUserToBeReturned = await usersRepository.findOneBy({
         id: userId
     })
 
